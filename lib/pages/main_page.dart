@@ -77,6 +77,7 @@ class _MainPageState extends State<MainPage> {
   Future<void> _selectDate(BuildContext context, String sessionName) async {
     final DateTime? picked = await showRoundedDatePicker(
       context: context,
+      barrierDismissible: true,
       initialDate: DateTime.now(),
       firstDate: DateTime(2020),
       lastDate: DateTime.now(),
