@@ -3,7 +3,7 @@
 
   jobs:
     build:
-      name: "Windows"
+      name: Windows
       runs-on: windows-latest
       steps:
         - name: Clone repository
@@ -19,7 +19,7 @@
           run: flutter build windows --release
         
         - name: Compress build result
-          uses: TheDoctor0/zip-release@latest
+          uses: thedoctor0/zip-release@0.7.6
           with:
             path: build/windows/runner/Release
             filename: nightly_build.zip
