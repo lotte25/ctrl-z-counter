@@ -1,6 +1,7 @@
   name: "Nightly Build"
+
   on: 
-    workflow_dispatch:
+    push
 
   jobs:
     build:
@@ -15,7 +16,7 @@
           with:
             channel: stable
             cache: true
-            cache-key: "flutter-:os:-:channel:-:version:-:arch:-:hash:"
+            cache-key: "flutter-:os:-:version:-:arch:"
             cache-path: "${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:"
         - run: flutter --version
 
@@ -25,11 +26,11 @@
         - name: Compress build result
           uses: thedoctor0/zip-release@0.7.6
           with:
-            path: build/windows/x64/runner/Release
+            path: build/windows/x64/runner/Release/*
             filename: nightly_build.zip
           
         - name: Upload Artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: Release
+            name: Nightly
             path: nightly_build.zip
