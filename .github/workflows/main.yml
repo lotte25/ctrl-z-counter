@@ -1,0 +1,31 @@
+  name: "Nightly Build"
+  on: push
+
+  jobs:
+    build:
+      name: "Windows"
+      runs-on: windows-latest
+      steps:
+        - name: Clone repository
+          uses: actions/checkout@v4
+
+        - name: Set up Flutter
+          uses: subosito/flutter-action@v2
+          with:
+            channel: stable
+        - run: flutter --version
+
+        - name: Build for Windows
+          run: flutter build windows --release
+        
+        - name: Compress build result
+          uses: TheDoctor0/zip-release@latest
+          with:
+            path: build/windows/runner/Release
+            filename: nightly_build.zip
+          
+        - name: Upload Artifacts
+          uses: actions/upload-artifact@v2
+          with:
+            name: Release
+            path: nightly_build.zip
