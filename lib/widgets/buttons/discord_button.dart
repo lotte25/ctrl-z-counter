@@ -1,5 +1,5 @@
-import 'package:contador_de_ctrl_z/providers/discord.dart';
-import 'package:contador_de_ctrl_z/widgets/buttons/left_rail_button.dart';
+import 'package:ctrlz_counter/providers/discord.dart';
+import 'package:ctrlz_counter/widgets/buttons/left_rail_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

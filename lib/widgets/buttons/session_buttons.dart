@@ -1,4 +1,4 @@
-import 'package:contador_de_ctrl_z/widgets/buttons/icon_only_button.dart';
+import 'package:ctrlz_counter/widgets/buttons/icon_only_button.dart';
 import 'package:flutter/material.dart';
 
 class SessionButtons extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:contador_de_ctrl_z/services/audio_player.dart';
-import 'package:contador_de_ctrl_z/services/confetti_overlay.dart';
-import 'package:contador_de_ctrl_z/widgets/dialogs/countdown.dart';
+import 'package:ctrlz_counter/services/audio_player.dart';
+import 'package:ctrlz_counter/services/confetti_overlay.dart';
+import 'package:ctrlz_counter/widgets/dialogs/countdown.dart';
 
 void showFinishDialog(BuildContext context, ColorScheme colorScheme, {required VoidCallback onFinish}) {
   showDialog(

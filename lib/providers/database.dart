@@ -1,4 +1,4 @@
-import 'package:contador_de_ctrl_z/services/app_database.dart';
+import 'package:ctrlz_counter/services/app_database.dart';
 
 class DatabaseProvider {
   DatabaseProvider._privateConstructor();

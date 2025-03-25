@@ -1,12 +1,12 @@
-import 'package:contador_de_ctrl_z/providers/database.dart';
-import 'package:contador_de_ctrl_z/providers/discord.dart';
+import 'package:ctrlz_counter/providers/database.dart';
+import 'package:ctrlz_counter/providers/discord.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 
-import 'package:contador_de_ctrl_z/pages/main_page.dart';
+import 'package:ctrlz_counter/pages/main_page.dart';
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});

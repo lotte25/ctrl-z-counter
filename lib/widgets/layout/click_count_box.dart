@@ -1,5 +1,5 @@
-import 'package:contador_de_ctrl_z/providers/keyboard.dart';
-import 'package:contador_de_ctrl_z/utils/utils.dart';
+import 'package:ctrlz_counter/providers/keyboard.dart';
+import 'package:ctrlz_counter/utils/utils.dart';
 import 'package:elapsed_time_display/elapsed_time_display.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

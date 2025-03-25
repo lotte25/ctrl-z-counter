@@ -6,9 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:contador_de_ctrl_z/utils/utils.dart';
-import 'package:contador_de_ctrl_z/widgets/buttons/left_rail_button.dart';
-import 'package:contador_de_ctrl_z/providers/background.dart';
+import 'package:ctrlz_counter/utils/utils.dart';
+import 'package:ctrlz_counter/widgets/buttons/left_rail_button.dart';
+import 'package:ctrlz_counter/providers/background.dart';
 
 final _colors = List.generate(
   7,

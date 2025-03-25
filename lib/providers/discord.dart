@@ -1,4 +1,4 @@
-import 'package:contador_de_ctrl_z/services/discord_rpc.dart';
+import 'package:ctrlz_counter/services/discord_rpc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_discord_rpc/flutter_discord_rpc.dart';
 

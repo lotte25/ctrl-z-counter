@@ -1,5 +1,5 @@
-import 'package:contador_de_ctrl_z/services/app_database.dart';
-import 'package:contador_de_ctrl_z/utils/utils.dart';
+import 'package:ctrlz_counter/services/app_database.dart';
+import 'package:ctrlz_counter/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class SessionList extends StatefulWidget {

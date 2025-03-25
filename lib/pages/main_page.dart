@@ -1,21 +1,21 @@
-import 'package:contador_de_ctrl_z/services/app_database.dart';
+import 'package:ctrlz_counter/services/app_database.dart';
 
-import 'package:contador_de_ctrl_z/providers/database.dart';
-import 'package:contador_de_ctrl_z/providers/background.dart';
-import 'package:contador_de_ctrl_z/providers/keyboard.dart';
+import 'package:ctrlz_counter/providers/database.dart';
+import 'package:ctrlz_counter/providers/background.dart';
+import 'package:ctrlz_counter/providers/keyboard.dart';
 
-import 'package:contador_de_ctrl_z/widgets/layout/window_border.dart';
-import 'package:contador_de_ctrl_z/widgets/layout/background.dart';
-import 'package:contador_de_ctrl_z/widgets/layout/window_buttons.dart';
-import 'package:contador_de_ctrl_z/widgets/layout/left_rail.dart';
-import 'package:contador_de_ctrl_z/widgets/layout/click_count_box.dart';
-import 'package:contador_de_ctrl_z/widgets/layout/session_list.dart';
+import 'package:ctrlz_counter/widgets/layout/window_border.dart';
+import 'package:ctrlz_counter/widgets/layout/background.dart';
+import 'package:ctrlz_counter/widgets/layout/window_buttons.dart';
+import 'package:ctrlz_counter/widgets/layout/left_rail.dart';
+import 'package:ctrlz_counter/widgets/layout/click_count_box.dart';
+import 'package:ctrlz_counter/widgets/layout/session_list.dart';
 
-import 'package:contador_de_ctrl_z/widgets/buttons/icon_only_button.dart';
-import 'package:contador_de_ctrl_z/widgets/buttons/session_buttons.dart';
+import 'package:ctrlz_counter/widgets/buttons/icon_only_button.dart';
+import 'package:ctrlz_counter/widgets/buttons/session_buttons.dart';
 
-import 'package:contador_de_ctrl_z/widgets/dialogs/session_dialog.dart';
-import 'package:contador_de_ctrl_z/widgets/dialogs/finish_dialog.dart';
+import 'package:ctrlz_counter/widgets/dialogs/session_dialog.dart';
+import 'package:ctrlz_counter/widgets/dialogs/finish_dialog.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
   List<Session> _sessions = [Session(createdAt: DateTime.now(), id: 1, name: "default", finished: true)];
 
   int currentSessionIndex = 0;
-  int selectedIndex = -1;
+  int selectedIndex = 0;
 
   DateTime? selectedDate;
   int? clicksForSelectedDate;
