@@ -14,17 +14,50 @@ Nowadays, i'm more capable of programming in general; not just javascript. Let's
 ## When did i start this project?
 I started learning Flutter and making this program on March 1, 2025. 
 
+# Screenshots
+
+<details>
+    <summary>First-time</summary>
+
+### Dark
+![First time - Dark](screenshots/first_time_dark.png)
+
+### Light
+![First time - Light](screenshots/first_time_light.png)
+
+</details>
+
+<details>
+    <summary>With background image</summary>  
+
+### Dark
+![Background - Dark](screenshots/background_dark.png)
+
+### Light
+![Background - Light](screenshots/background_light.png)
+
+### Dark 2
+![Background - Dark 2](screenshots/background_dark_2.png)
+
+</details>
+
+<details>
+    <summary>Discord RPC</summary>
+
+![Discord RPC](screenshots/discord_rpc.png)
+</details>
+
 ## Features
-- System-wide key listener
-- Total click count for a session
-- Today's click count for a session
-- Total click count for a specific day (using a date picker)
-- Session list
-- Session status (did you finish your drawing?)
-- Discord RPC
-- Material You 3 UI
-- Light and Dark mode
-- Custom background image support (GIF support out of the box)
-- Background color palette generation
-- Random color selector (will replace with Material You color palette)
-- Silly finish animation (you will see for yourself)
+- [x] System-wide key listener
+- [x] Total click count for a session
+- [x] Today's click count for a session
+- [x] Total click count for a specific day (using a date picker)
+- [x] Session list
+- [x] Session status (did you finish your drawing?)
+- [x] Discord RPC
+- [x] Material You 3 UI
+- [x] Light and Dark mode
+- [x] Custom background image support (GIF support out of the box)
+- [x] Background color palette generation
+- [x] Random color selector (will replace with Material You color palette)
+- [x] Silly finish animation (you will see for yourself)
