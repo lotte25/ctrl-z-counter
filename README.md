@@ -61,3 +61,10 @@ I started learning Flutter and making this program on March 1, 2025.
 - [x] Background color palette generation
 - [x] Random color selector (will replace with Material You color palette)
 - [x] Silly finish animation (you will see for yourself)
+
+## TO-DO
+
+- [ ] Minimize to tray
+- [ ] Settings
+- [ ] General info dialog
+- [ ] Fix some colors
