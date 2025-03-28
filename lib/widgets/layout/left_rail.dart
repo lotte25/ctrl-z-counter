@@ -1,6 +1,6 @@
 import 'package:ctrlz_counter/widgets/buttons/discord_button.dart';
 import 'package:flutter/material.dart';
-import 'package:ctrlz_counter/widgets/dialogs/personalization_modal.dart';
+import 'package:ctrlz_counter/widgets/dialogs/personalization_dialog.dart';
 
 class LeftRail extends StatelessWidget {
   const LeftRail({super.key});
