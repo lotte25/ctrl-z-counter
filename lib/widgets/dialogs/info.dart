@@ -1,3 +1,4 @@
+import 'package:ctrlz_counter/utils/utils.dart';
 import 'package:ctrlz_counter/widgets/buttons/icon_only_button.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -48,12 +49,21 @@ showInfoDialog({
                     color: colorScheme.onSurface
                   ),
                 ),
-                Text(
-                  "Version 0.9.0",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: colorScheme.onSurface.withValues(alpha: 0.8)
-                  )
+                FutureBuilder(
+                  future: getProgramVersion(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return CircularProgressIndicator();
+                    } else {
+                      return Text(
+                        "Version ${snapshot.data}",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: colorScheme.onSurface.withValues(alpha: 0.8)
+                        )
+                      );
+                    }
+                  }
                 ),
                 SizedBox(height: 10),
                 Text(
