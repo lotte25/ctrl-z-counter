@@ -1,4 +1,5 @@
 import 'package:ctrlz_counter/widgets/buttons/left_rail_button.dart';
+import 'package:ctrlz_counter/widgets/dialogs/info.dart';
 import 'package:flutter/material.dart';
 
 class InfoButton extends StatelessWidget {
@@ -11,7 +12,9 @@ class InfoButton extends StatelessWidget {
     return LeftRailButton(
       icon: Icon(Icons.info_outline), 
       colorScheme: colorScheme,
-      onPressed: () {},
+      onPressed: () {
+        showInfoDialog(context: context);
+      },
     );
   }
 }
