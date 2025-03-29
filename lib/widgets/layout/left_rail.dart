@@ -1,6 +1,7 @@
 import 'package:ctrlz_counter/widgets/buttons/discord_button.dart';
+import 'package:ctrlz_counter/widgets/buttons/info_button.dart';
+import 'package:ctrlz_counter/widgets/buttons/personalization.dart';
 import 'package:flutter/material.dart';
-import 'package:ctrlz_counter/widgets/dialogs/personalization_dialog.dart';
 
 class LeftRail extends StatelessWidget {
   const LeftRail({super.key});
@@ -14,16 +15,16 @@ class LeftRail extends StatelessWidget {
       child: Container(
         width: 50,
         margin: EdgeInsets.all(16),
-        // padding: EdgeInsets.symmetric(vertical: 2),
         decoration: BoxDecoration(
-          color: colorScheme.surface,
+          color: colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(40)
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            PersonalizationModal(colorScheme: colorScheme),
-            DiscordButton(colorScheme: colorScheme)
+            PersonalizationButton(colorScheme: colorScheme),
+            DiscordButton(colorScheme: colorScheme),
+            InfoButton(colorScheme: colorScheme)
           ]
         ),
       ),
