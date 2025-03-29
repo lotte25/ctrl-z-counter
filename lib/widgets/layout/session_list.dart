@@ -32,6 +32,13 @@ class _SessionListState extends State<SessionList> {
       decoration: BoxDecoration(
         color: widget.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 4,
+            offset: Offset(0, 4)
+          )
+        ]
       ),
       child: StatefulBuilder(
         builder: (context, setState) {
