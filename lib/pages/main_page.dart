@@ -182,6 +182,24 @@ class _MainPageState extends State<MainPage> {
                               },
                               icon: Icon(Icons.restart_alt_outlined),
                             ),
+                            IconOnlyButton(
+                              onPressed: () async {
+                                final now = selectedDate ?? DateTime.now();
+                                final today = DateTime(now.year, now.month, now.day);
+                                final yesterday = today.subtract(Duration(days: 1));
+                                
+                                int count = await database.countClicksForDate(
+                                  sessionName: context.read<KeyboardProvider>().currentSession,
+                                  date: yesterday
+                                );
+
+                                setState(() {
+                                  selectedDate = yesterday;
+                                  clicksForSelectedDate = count;
+                                });
+                              },
+                              icon: Icon(Icons.swipe_left_alt_outlined)
+                            )
                           ],
                         ),
                       ],
