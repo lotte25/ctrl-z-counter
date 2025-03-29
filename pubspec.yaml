@@ -36,6 +36,7 @@ dependencies:
   just_audio_windows: ^0.2.2
   package_info_plus: ^8.3.0
   url_launcher: ^6.3.1
+  material_design_icons_flutter: ^7.0.7296
 
 dev_dependencies:
   flutter_test:
@@ -50,3 +51,5 @@ flutter:
     - assets/sounds/confetti.mp3
     - assets/sounds/yippie.mp3
     - assets/images/gatologo.png
+    - assets/images/shary.png
+    - assets/images/github.svg
