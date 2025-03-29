@@ -18,13 +18,13 @@ class LeftRailButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Container(
         decoration: BoxDecoration(
-          color: colorScheme.onSurface,
+          color: colorScheme.onPrimaryContainer,
           shape: BoxShape.circle,
         ),
         child: IconButton(
           onPressed: onPressed, 
           icon: icon,
-          color: colorScheme.surface
+          color: colorScheme.onPrimaryFixed
         ),
       ),
     );
