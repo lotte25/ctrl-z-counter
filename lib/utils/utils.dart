@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/painting.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 String formatDate(DateTime date, {bool includeHour = true}) {
@@ -16,4 +17,9 @@ Future<Color> extractDominantColor(String path) async {
   );
 
   return palette.dominantColor!.color;
+}
+
+Future<String> getProgramVersion() async {
+  final packageInfo = await PackageInfo.fromPlatform();
+  return packageInfo.version;
 }
