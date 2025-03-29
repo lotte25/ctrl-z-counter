@@ -67,4 +67,4 @@ I started learning Flutter and making this program on March 1, 2025.
 - [ ] Minimize to tray
 - [ ] Settings
 - [x] General info dialog
-- [ ] Fix some colors
+- [x] Fix some colors
