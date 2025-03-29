@@ -24,7 +24,7 @@ class LeftRailButton extends StatelessWidget {
         child: IconButton(
           onPressed: onPressed, 
           icon: icon,
-          color: colorScheme.onPrimaryFixed
+          color: colorScheme.primaryContainer
         ),
       ),
     );
