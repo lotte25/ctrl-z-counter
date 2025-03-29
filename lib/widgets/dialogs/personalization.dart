@@ -27,7 +27,7 @@ void showPersonalizationDialog({
         child: Container(
           width: 380,
           padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
+          decoration: BoxDecoration(
             color: colorScheme.surface,
             borderRadius: BorderRadius.all(Radius.circular(16))
           ),
