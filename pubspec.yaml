@@ -1,7 +1,7 @@
 name: ctrlz_counter
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.9.0
+version: 0.10.0
 
 environment:
   sdk: ^3.7.0
@@ -52,4 +52,3 @@ flutter:
     - assets/sounds/yippie.mp3
     - assets/images/gatologo.png
     - assets/images/shary.png
-    - assets/images/github.svg
