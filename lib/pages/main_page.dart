@@ -14,8 +14,8 @@ import 'package:ctrlz_counter/widgets/layout/session_list.dart';
 import 'package:ctrlz_counter/widgets/buttons/icon_only_button.dart';
 import 'package:ctrlz_counter/widgets/buttons/session_buttons.dart';
 
-import 'package:ctrlz_counter/widgets/dialogs/session_dialog.dart';
-import 'package:ctrlz_counter/widgets/dialogs/finish_dialog.dart';
+import 'package:ctrlz_counter/widgets/dialogs/session.dart';
+import 'package:ctrlz_counter/widgets/dialogs/finish.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';

@@ -1,4 +1,4 @@
-import 'package:ctrlz_counter/widgets/dialogs/personalization_dialog.dart';
+import 'package:ctrlz_counter/widgets/dialogs/personalization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ctrlz_counter/widgets/buttons/left_rail_button.dart';
