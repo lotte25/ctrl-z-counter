@@ -1,3 +1,4 @@
+import 'package:ctrlz_counter/utils/window.dart';
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 
@@ -31,7 +32,10 @@ class WindowButtons extends StatelessWidget {
             children: [
             MinimizeWindowButton(
               colors: buttonColors, 
-              animate: true
+              animate: true,
+              onPressed: () {
+                fadeOutWindow();
+              },
             ),
             CloseWindowButton(
               colors: closeButtonColors, 

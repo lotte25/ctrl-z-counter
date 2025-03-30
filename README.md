@@ -64,7 +64,7 @@ I started learning Flutter and making this program on March 1, 2025.
 
 ## TO-DO
 
-- [ ] Minimize to tray
+- [x] Minimize to tray
 - [ ] Settings
 - [x] General info dialog
 - [x] Fix some colors
