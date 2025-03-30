@@ -1,11 +1,11 @@
-import 'package:ctrlz_counter/providers/database.dart';
-import 'package:ctrlz_counter/providers/discord.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 
+import 'package:ctrlz_counter/providers/database.dart';
+import 'package:ctrlz_counter/providers/discord.dart';
 import 'package:ctrlz_counter/pages/main_page.dart';
 
 class MainApp extends StatefulWidget {
@@ -20,7 +20,6 @@ class _MainAppState extends State<MainApp> with WindowListener {
   void initState() {
     super.initState();
     windowManager.addListener(this);
-    setPreventClose();
     DatabaseProvider.instance.initialize();
     Provider.of<RPCProvider>(context, listen: false).initialize();
   }
@@ -29,11 +28,6 @@ class _MainAppState extends State<MainApp> with WindowListener {
   void dispose() {
     super.dispose();
     windowManager.removeListener(this);
-  }
-
-  void setPreventClose() async {
-    await windowManager.setPreventClose(true);
-    setState(() {});
   }
 
   @override
@@ -77,10 +71,6 @@ class _MainAppState extends State<MainApp> with WindowListener {
 
   @override
   void onWindowClose() async {
-    bool isPreventClose = await windowManager.isPreventClose();
-
-    if (isPreventClose) {
-      windowManager.destroy();
-    }
+    await windowManager.destroy();
   }
 }
