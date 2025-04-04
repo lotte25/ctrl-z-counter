@@ -1,4 +1,4 @@
-  import 'package:window_manager/window_manager.dart';
+import 'package:window_manager/window_manager.dart';
 
 void fadeInWindow() async {
     await windowManager.setOpacity(0.0);
