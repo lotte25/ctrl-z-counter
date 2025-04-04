@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ctrlz_counter/services/audio_player.dart';
-import 'package:ctrlz_counter/services/confetti_overlay.dart';
+import 'package:ctrlz_counter/widgets/dialogs/confetti_overlay.dart';
 import 'package:ctrlz_counter/widgets/dialogs/countdown.dart';
 
 void showFinishDialog(BuildContext context, ColorScheme colorScheme, {required VoidCallback onFinish}) {
@@ -21,7 +21,7 @@ void showFinishDialog(BuildContext context, ColorScheme colorScheme, {required V
             onPressed: () {
               Navigator.of(dialogContext).pop();
               showCountdown(context: context, onEnd: () async {
-                Confetti.showOverlay(context, colorScheme);
+                showConfetti(context, colorScheme);
                 await playSound("yippie");  
                 await playSound("confetti");
                 onFinish(); 
