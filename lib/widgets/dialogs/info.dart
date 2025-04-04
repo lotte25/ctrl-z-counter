@@ -114,6 +114,7 @@ void showInfoDialog({
                   imageType: "asset",
                   personName: "Kandell", 
                   personRole: "Support and inspiration",
+                  personURL: "https://x.com/SternKennArt",
                 )
               ],
             ),
