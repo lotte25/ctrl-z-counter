@@ -1,3 +1,5 @@
+import 'package:ctrlz_counter/services/settings.dart';
+import 'package:ctrlz_counter/utils/window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -71,6 +73,11 @@ class _MainAppState extends State<MainApp> with WindowListener {
 
   @override
   void onWindowClose() async {
+    if (SettingsService.getSettings()["minimizeToTray"]) {
+      fadeOutWindow();
+      return;
+    }
+
     await windowManager.destroy();
   }
 }
