@@ -65,7 +65,7 @@ I started learning Flutter and making this program on March 1, 2025.
 ## TO-DO
 
 - [x] Minimize to tray
-- [ ] Settings
+- [x] Settings
 - [x] General info dialog
 - [x] Fix some colors
 - [ ] Integrate something for updates (ie. Squirrel)
@@ -73,3 +73,5 @@ I started learning Flutter and making this program on March 1, 2025.
 - [ ] Fix Nightly GitHub Actions workflow to not recreate the entire folder structure
 - [ ] Refactor some code
 - [ ] Migrate all state management to Riverpod (after first release, i need to release it soon or i will feel bad)
+- [ ] Add launch on startup
+- [ ] Add inno setup script
