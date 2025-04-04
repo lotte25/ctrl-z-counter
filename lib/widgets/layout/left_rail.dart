@@ -1,6 +1,7 @@
 import 'package:ctrlz_counter/widgets/buttons/discord_button.dart';
 import 'package:ctrlz_counter/widgets/buttons/info_button.dart';
 import 'package:ctrlz_counter/widgets/buttons/personalization.dart';
+import 'package:ctrlz_counter/widgets/buttons/settings.dart';
 import 'package:flutter/material.dart';
 
 class LeftRail extends StatelessWidget {
@@ -24,7 +25,8 @@ class LeftRail extends StatelessWidget {
           children: [
             PersonalizationButton(colorScheme: colorScheme),
             DiscordButton(colorScheme: colorScheme),
-            InfoButton(colorScheme: colorScheme)
+            InfoButton(colorScheme: colorScheme),
+            SettingsButton(colorScheme: colorScheme)
           ]
         ),
       ),
