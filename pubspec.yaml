@@ -1,7 +1,7 @@
 name: ctrlz_counter
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.11.0
+version: 0.12.0
 
 environment:
   sdk: ^3.7.0
@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.3.1
   material_design_icons_flutter: ^7.0.7296
   tray_manager: ^0.4.0
+  launch_at_startup: ^0.5.1
 
 dev_dependencies:
   flutter_test:
