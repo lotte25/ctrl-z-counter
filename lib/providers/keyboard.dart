@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:isolate';
 
-import '../services/app_database.dart';
+import '../models/app_database.dart';
 import '../services/keyboard.dart';
 import '../providers/database.dart';
 import '../providers/discord.dart';

@@ -1,4 +1,4 @@
-import 'package:ctrlz_counter/services/app_database.dart';
+import 'package:ctrlz_counter/models/app_database.dart';
 import 'package:ctrlz_counter/utils/utils.dart';
 import 'package:flutter/material.dart';
 
