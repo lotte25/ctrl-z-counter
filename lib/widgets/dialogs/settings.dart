@@ -6,7 +6,7 @@ void showSettingsDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       final colorScheme = Theme.of(context).colorScheme;
-      Map<String, dynamic> settings = SettingsService.getSettings();
+      final settings = SettingsService.getSettings();
       bool minimizeToTray = settings["minimizeToTray"];
       bool discordRPC = settings["discordRPC"];
       bool launchAtStartup = settings["launchAtStartup"];

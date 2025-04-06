@@ -8,7 +8,7 @@ class SettingsService {
     bool? discordRPC,
     bool? launchAtStartup
   }) async {
-    Map<String, dynamic> settings = _box.get("settings", defaultValue: {
+    final settings = _box.get("settings", defaultValue: {
       "minimizeToTray": true,
       "discordRPC": true,
       "launchAtStartup": false
@@ -21,7 +21,7 @@ class SettingsService {
     await _box.put("settings", settings);
   }
 
-  static Map<String, dynamic> getSettings() {
+  static Map<dynamic, dynamic> getSettings() {
     return _box.get("settings", defaultValue: {
       "minimizeToTray": true,
       "discordRPC": true,
