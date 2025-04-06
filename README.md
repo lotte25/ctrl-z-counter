@@ -73,5 +73,5 @@ I started learning Flutter and making this program on March 1, 2025.
 - [ ] Fix Nightly GitHub Actions workflow to not recreate the entire folder structure
 - [ ] Refactor some code
 - [ ] Migrate all state management to Riverpod (after first release, i need to release it soon or i will feel bad)
-- [ ] Add launch on startup
+- [x] Add launch on startup
 - [ ] Add inno setup script
