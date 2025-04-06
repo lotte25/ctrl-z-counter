@@ -36,7 +36,7 @@ class AppDatabase extends _$AppDatabase {
     ));
   }
 
-  Future<int> countSessionClicks({String sessionName = "default", bool today = false}) async {
+  Future<int> countSessionClicks({String sessionName = "default"}) async {
     return await undoes.count(
       where: (row) => row.session.equals(sessionName)
     ).getSingle();
