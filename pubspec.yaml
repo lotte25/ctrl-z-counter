@@ -6,6 +6,13 @@ version: 0.14.3
 environment:
   sdk: ^3.7.0
 
+msix_config:
+  display_name: Ctrl+Z Counter
+  publisher_display_name: Lotte25
+  identity_name: lotte25.ctrlzcounter
+  msix_version: 0.14.3.0
+  logo_path: D:\Coding\Dart-Flutter\contador_de_ctrl_z\assets\images\gatologo.png
+
 dependencies:
   bitsdojo_window: ^0.1.6
   drift: ^2.25.1
@@ -46,6 +53,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   drift_dev: ^2.25.2
   build_runner: ^2.4.15
+  msix: ^3.16.8
 
 flutter:
   uses-material-design: true
