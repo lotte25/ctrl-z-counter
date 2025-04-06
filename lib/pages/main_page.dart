@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> {
   void initState() { 
     super.initState();
     _loadSessions();
+    context.read<KeyboardProvider>().updateCounts();
   }
   
   Future<void> _loadSessions() async {
