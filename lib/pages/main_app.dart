@@ -73,11 +73,10 @@ class _MainAppState extends State<MainApp> with WindowListener {
 
   @override
   void onWindowClose() async {
-    if (SettingsService.getSettings()["minimizeToTray"]) {
-      fadeOutWindow();
-      return;
-    }
+    fadeOutWindow();
 
+    if (SettingsService.getSettings()["minimizeToTray"]) return;
+    
     await windowManager.destroy();
   }
 }
