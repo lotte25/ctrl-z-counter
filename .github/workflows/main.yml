@@ -1,5 +1,5 @@
   name: "Nightly Build"
-  
+
   on: 
     workflow_dispatch:
 
@@ -23,12 +23,15 @@
         - name: Build for Windows
           run: flutter build windows --release
         
+        - name: Navigate to build directory
+          run: cd build/windows/x64/runner/Release
+
         - name: Compress build result
           uses: thedoctor0/zip-release@0.7.6
           with:
-            path: build/windows/x64/runner/Release/*
+            path: .
             filename: nightly_build.zip
-          
+            
         - name: Upload Artifacts
           uses: actions/upload-artifact@v4
           with:
