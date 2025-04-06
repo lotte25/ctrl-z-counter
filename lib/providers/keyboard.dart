@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:isolate';
 
-import '../models/app_database.dart';
 import '../services/keyboard.dart';
 import '../providers/database.dart';
 import '../providers/discord.dart';
@@ -14,7 +13,7 @@ class SessionCounts {
 }
 
 class KeyboardProvider extends ChangeNotifier {
-  final AppDatabase db = DatabaseProvider.instance.db;
+  final DatabaseProvider db = DatabaseProvider.instance;
   final RPCProvider rpcProvider;
 
   String _currentSession = "default";

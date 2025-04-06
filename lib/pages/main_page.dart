@@ -31,7 +31,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final AppDatabase database = DatabaseProvider.instance.db;
+  final DatabaseProvider database = DatabaseProvider.instance;
 
   List<Session> _sessions = [Session(createdAt: DateTime.now(), id: 1, name: "default", finished: true)];
 
