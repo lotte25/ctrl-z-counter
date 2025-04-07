@@ -49,6 +49,9 @@ I started learning Flutter and making this program on March 1, 2025.
 
 ## Features
 - [x] System-wide key listener
+- [x] Launch at Windows startup
+- [x] Minimize to tray
+- [x] Settings
 - [x] Total click count for a session
 - [x] Today's click count for a session
 - [x] Total click count for a specific day (using a date picker)
@@ -62,13 +65,14 @@ I started learning Flutter and making this program on March 1, 2025.
 - [x] Random color selector (will replace with Material You color palette)
 - [x] Silly finish animation (you will see for yourself)
 
+
 ## TO-DO
 
 - [x] Minimize to tray
 - [x] Settings
 - [x] General info dialog
 - [x] Fix some colors
-- [ ] Integrate something for updates (ie. Squirrel) - may do later? idk...
+- [ ] Integrate something for updates (ie. Squirrel) - may do later? idk... - update 2: i give up with this one
 - [x] Make the database management less of a mess (kinda?)
 - [x] Fix Nightly GitHub Actions workflow to not recreate the entire folder structure
 - [ ] Refactor some code

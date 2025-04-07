@@ -50,7 +50,7 @@ void main(List<String> args) async {
   }
 
   launchAtWinStartup ? await launchAtStartup.enable() : await launchAtStartup.disable();
-  
+
   runApp(
     MultiProvider(
       providers: [
@@ -62,17 +62,16 @@ void main(List<String> args) async {
     )
   );
 
-
-
   doWhenWindowReady(() async {
     Size size = Size(854, 480);
+
+    appWindow.minSize = size;
+    appWindow.size = size;
 
     await windowManager.setPreventClose(true);
     await windowManager.setMinimizable(false);
     await windowManager.setAsFrameless();
     await windowManager.setAlignment(Alignment.center, animate: true);
-    await windowManager.setMinimumSize(size);
-    await windowManager.setSize(size);
 
     await windowManager.show();
     await windowManager.focus();
