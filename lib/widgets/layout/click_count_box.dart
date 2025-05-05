@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:elapsed_time_display/elapsed_time_display.dart';
+import 'package:provider/provider.dart';
+
 import 'package:ctrlz_counter/providers/keyboard.dart';
 import 'package:ctrlz_counter/utils/utils.dart';
-import 'package:elapsed_time_display/elapsed_time_display.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ClickCountBox extends StatelessWidget {
   final DateTime? selectedDate;
