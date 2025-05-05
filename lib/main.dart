@@ -68,6 +68,8 @@ void main(List<String> args) async {
     appWindow.minSize = size;
     appWindow.size = size;
 
+    await windowManager.setTitle("Ctrl+Z Counter");
+    
     await windowManager.setPreventClose(true);
     await windowManager.setMinimizable(false);
     await windowManager.setAsFrameless();

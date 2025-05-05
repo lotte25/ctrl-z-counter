@@ -34,12 +34,14 @@ class _MainAppState extends State<MainApp> with WindowListener {
 
   @override
   Widget build(BuildContext context) {
+    final initialColor = Colors.tealAccent.shade700;
+
     return DynamikTheme(
       config: ThemeConfig(
         useMaterial3: true,
-        lightScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
+        lightScheme: ColorScheme.fromSeed(seedColor: initialColor),
         darkScheme: ColorScheme.fromSeed(
-          seedColor: Colors.pink,
+          seedColor: initialColor,
           brightness: Brightness.dark,
         ),
         defaultThemeState: SimpleThemeType.dynamik.themeState,
@@ -60,7 +62,7 @@ class _MainAppState extends State<MainApp> with WindowListener {
           supportedLocales: [
             const Locale("en", "US")
           ],
-          title: "Contador de CTRL + Z",
+          title: "Ctrl+Z Counter",
           themeMode: themeMode, 
           theme: theme,
           darkTheme: darkTheme,
