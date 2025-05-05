@@ -95,7 +95,7 @@ void showPersonalizationDialog({
                     FilledButton.icon(
                       onPressed: () async {
                         final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-                        if (pickedFile != null) {
+                        if (pickedFile != null && context.mounted) {
                           context.read<BackgroundProvider>().setPreview(pickedFile.path);
                         }
                       }, 
@@ -109,7 +109,7 @@ void showPersonalizationDialog({
                         Color color = await extractDominantColor(
                           context.read<BackgroundProvider>().backgroundImage!
                         );
-                        DynamikTheme.of(context).setCustomColorMode(color);
+                        if (context.mounted) DynamikTheme.of(context).setCustomColorMode(color);
                       }, 
                       label: Text("Apply"),
                       icon: Icon(Icons.check_circle_outline_rounded)

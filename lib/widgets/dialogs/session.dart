@@ -84,7 +84,9 @@ class _SessionDialogState extends State<SessionDialog> {
       }
     }
 
-    Navigator.of(context).pop(value);
+    if (mounted)  {
+      Navigator.of(context).pop(value);
+    }
   }
 
   @override

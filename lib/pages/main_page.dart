@@ -68,10 +68,9 @@ class _MainPageState extends State<MainPage> {
       currentSessionIndex = 0;
     });
 
-    await database.deleteSession(_sessions[selectedIndex].name);
-
     context.read<KeyboardProvider>().setSession(_sessions[0].name, isFinished: true);
 
+    await database.deleteSession(_sessions[selectedIndex].name);
     await _loadSessions();
   }
 
@@ -138,8 +137,8 @@ class _MainPageState extends State<MainPage> {
                                     context, 
                                     colorScheme, 
                                     onFinish: () async {
-                                      await database.finishSession(_sessions[currentSessionIndex].name);
                                       context.read<KeyboardProvider>().setCurrentSessionAsFinished();
+                                      await database.finishSession(_sessions[currentSessionIndex].name);
                                       await _loadSessions();
                                     }
                                   );
@@ -249,8 +248,8 @@ class _MainPageState extends State<MainPage> {
                                     ),
                                     TextButton(
                                       onPressed: () async {
+                                        Navigator.of(context).pop();
                                         await _deleteSession();
-                                        Navigator.pop(context);
                                       },
                                       child: const Text("Yes"),
                                     )
@@ -272,9 +271,7 @@ class _MainPageState extends State<MainPage> {
                                 }
                               );
                               
-                              if (sessionName != null) {
-                                await database.createSession(DateTime.now(), sessionName);
-                      
+                              if (sessionName != null && context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -290,7 +287,7 @@ class _MainPageState extends State<MainPage> {
                                   ),
                                 ),
                               );
-                      
+                                await database.createSession(DateTime.now(), sessionName);
                                 await _loadSessions();
                               }
                           }
