@@ -126,7 +126,6 @@ class _MainPageState extends State<MainPage> {
                         Column(
                           children: [
                             ClickCountBox(
-                              colorScheme: colorScheme, 
                               selectedDate: selectedDate, 
                               clicksForSelectedDate: clicksForSelectedDate, 
                               currentSessionTime: _sessions[currentSessionIndex].createdAt

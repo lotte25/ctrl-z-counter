@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ClickCountBox extends StatelessWidget {
-  final ColorScheme colorScheme;
   final DateTime? selectedDate;
   final int? clicksForSelectedDate;
   final DateTime currentSessionTime;
 
   const ClickCountBox({
     super.key,
-    required this.colorScheme,
     required this.selectedDate,
     required this.clicksForSelectedDate,
     required this.currentSessionTime
@@ -20,6 +18,8 @@ class ClickCountBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    
     final counts = context.select<KeyboardProvider, SessionCounts>((kbState) => kbState.counts);
     final currentSession = context.select<KeyboardProvider, String>((kbState) => kbState.currentSession);
 
@@ -69,7 +69,7 @@ class ClickCountBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 "${counts.todayCount == counts.undoCount ? "^" : counts.todayCount}",
                 textAlign: TextAlign.center,
@@ -89,7 +89,7 @@ class ClickCountBox extends StatelessWidget {
                   
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 width: 200,
                 padding: EdgeInsets.symmetric(
@@ -114,22 +114,10 @@ class ClickCountBox extends StatelessWidget {
                         ),
                       ),
                     ),
-                    ElapsedTimeDisplay(
-                      startTime: currentSession == "default" 
-                        ? DateTime.now() 
-                        : currentSessionTime,
-                      immediateRebuildOnUpdate: true,
-                      formatter: (elapsedTime) {
-                        String hours = elapsedTime.hours.toString().padRight(2, "0");
-                        String minutes = elapsedTime.minutes.toString().padLeft(2, "0");
-                        String seconds = elapsedTime.seconds.toString().padLeft(2, "0");
-    
-                        return "Elapsed: $hours:$minutes:$seconds";
-                      },
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: colorScheme.onSurface,
-                      ),
+                    _ElapsedCounter(
+                      currentSession: currentSession, 
+                      currentSessionTime: currentSessionTime, 
+                      colorScheme: colorScheme
                     )
                   ],
                 ),
@@ -137,6 +125,39 @@ class ClickCountBox extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _ElapsedCounter extends StatelessWidget {
+  const _ElapsedCounter({
+    required this.currentSession,
+    required this.currentSessionTime,
+    required this.colorScheme,
+  });
+
+  final String currentSession;
+  final DateTime currentSessionTime;
+  final ColorScheme colorScheme;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElapsedTimeDisplay(
+      startTime: currentSession == "default" 
+        ? DateTime.now() 
+        : currentSessionTime,
+      immediateRebuildOnUpdate: true,
+      formatter: (elapsedTime) {
+        String hours = elapsedTime.hours.toString().padRight(2, "0");
+        String minutes = elapsedTime.minutes.toString().padLeft(2, "0");
+        String seconds = elapsedTime.seconds.toString().padLeft(2, "0");
+        
+        return "Elapsed: $hours:$minutes:$seconds";
+      },
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: colorScheme.onSurface,
       ),
     );
   }
