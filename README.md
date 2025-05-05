@@ -65,7 +65,6 @@ I started learning Flutter and making this program on March 1, 2025.
 - [x] Random color selector (will replace with Material You color palette)
 - [x] Silly finish animation (you will see for yourself)
 
-
 ## TO-DO
 
 - [x] Minimize to tray
@@ -76,5 +75,5 @@ I started learning Flutter and making this program on March 1, 2025.
 - [x] Make the database management less of a mess (kinda?)
 - [x] Fix Nightly GitHub Actions workflow to not recreate the entire folder structure
 - [ ] Refactor some code
-- [ ] Migrate all state management to Riverpod (after first release, i need to release it soon or i will feel bad)
+- [ ] ~Migrate all state management to Riverpod (after first release, i need to release it soon or i will feel bad)~
 - [x] Add launch on startup
