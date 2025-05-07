@@ -8,7 +8,7 @@ I... kind of overdid this. You will understand why after you see the list of fea
 ## Inspiration
 Oh well... I have an artist friend. This friend in particular is pretty good at drawing almost everything; his style is cute, too. But... the times he undoes a single line in a single second is kind of scary. Ever since we saw him draw something seriously, we made fun of him (in a friendly way) because of that. I won't say much more, but i ended up offering myself to make a program that would count how many times he used Ctrl + Z. So here we are!
 
-This is actually the second iteration of the program... The first was actually a mess. Written in C++ and using wxWidgets! I never actually made the UI for it because i was just terrible at programming in a language other than JavaScript, and my C++ setup was just terrible. I had no idea how to fix my errors and i gave up; we are talking about 9, almost 10 months ago.
+This is actually the second iteration of the program... The first was actually a mess. Written in C++ and using wxWidgets! I never actually made the UI for it because i was just terrible at programming in a language other than JavaScript, and my C++ setup was just terrible. I had no idea how to fix my errors and i gave up; we are talking about 9... almost 10 months ago.
 Nowadays, i'm more capable of programming in general; not just javascript. Let's say... i allowed myself to just learn and do, instead of hoping i learn something without actually trying it.
 
 ## When did i start this project?
@@ -71,9 +71,8 @@ I started learning Flutter and making this program on March 1, 2025.
 - [x] Settings
 - [x] General info dialog
 - [x] Fix some colors
-- [ ] Integrate something for updates (ie. Squirrel) - may do later? idk... - update 2: i give up with this one
-- [x] Make the database management less of a mess (kinda?)
+- [ ] ~Integrate something for updates (ie. Squirrel) - may do later? idk...~ - update 2: i give up with this one
+- [x] Make the database management less of a mess (yes i did)
 - [x] Fix Nightly GitHub Actions workflow to not recreate the entire folder structure
 - [ ] Refactor some code
-- [ ] ~Migrate all state management to Riverpod (after first release, i need to release it soon or i will feel bad)~
 - [x] Add launch on startup
