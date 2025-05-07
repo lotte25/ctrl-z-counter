@@ -1,5 +1,4 @@
-import 'package:drift/drift.dart';
-import 'package:ctrlz_counter/models/app_database.dart';
+import 'package:ctrlz_counter/services/database.dart';
 
 class DatabaseProvider {
   DatabaseProvider._privateConstructor();
@@ -9,7 +8,7 @@ class DatabaseProvider {
   AppDatabase? _db;
 
   Future<void> initialize() async {
-      _db ??= AppDatabase();
+      _db ??= AppDatabase.instance;
   }
 
   AppDatabase get db {
@@ -21,18 +20,11 @@ class DatabaseProvider {
   }
 
   Future<void> insertUndo(DateTime timestamp, String session) async {
-    await db.into(db.undoes).insert(UndoesCompanion.insert(
-      session: session,
-      timestamp: timestamp
-    ));
+    await db.createUndo(timestamp, session);
   }
 
   Future<int> countSessionClicks({String sessionName = "default"}) async {
-    final query = db.select(db.undoes)
-      ..where((row) => row.session.equals(sessionName));
-
-    final results = await query.get();
-    return results.length;
+    return await db.countClicks(sessionName: sessionName);
   }
 
   Future<int> countClicksForDate({String sessionName = "default", DateTime? date}) async {
@@ -40,46 +32,40 @@ class DatabaseProvider {
     DateTime today = DateTime(now.year, now.month, now.day);
     DateTime tomorrow = today.add(Duration(days: 1));
 
-    final query = db.select(db.undoes);
+    final todayStr = today.toIso8601String();
+    final tomorrowStr = tomorrow.toIso8601String();
 
-    final count = await (query
-      ..where((row) => row.timestamp.isBiggerOrEqualValue(today))
-      ..where((row) => row.timestamp.isSmallerThanValue(tomorrow))
-      ..where((row) => row.session.equals(sessionName))
-    ).get();
-    
-    return count.length;
+    final count = await db.countDateClicks(
+      sessionName: sessionName,
+      today: todayStr,
+      tomorrow: tomorrowStr
+    );
+
+    return count;
   }
 
   Future<int> countUndoes() async {
-    return await db.undoes.count().getSingle();
+    return await db.countClicks();
   }
 
-  Future<List<Session>> getSessions() async => await db.select(db.sessions).get();
+  Future<List<Session>> getSessions() async {
+    final results = await db.retrieveSessions();
 
-  Future<bool> sessionExists(String sessionName) async {
-    int count = await db.sessions.count(where: (s) => s.name.equals(sessionName)).getSingle();
-    
-    return (count > 0);
+    return results.map((map) => Session.fromMap(map)).toList();
+
   }
 
-  Future<void> createSession(DateTime createdAt, String sessionName) async {
-    await db.into(db.sessions).insert(SessionsCompanion.insert(
-      name: sessionName, 
-      createdAt: createdAt,
-      finished: Value(false)
-    ));
+  Future<bool> sessionExists(String sessionName) async => await db.sessionExists(sessionName);
+
+  Future<bool> createSession(DateTime createdAt, String sessionName) async {
+    return await db.createSession(createdAt, sessionName);
   }
 
   Future<void> deleteSession(String sessionName) async {
-    await db.transaction(() async {
-      await (db.delete(db.undoes)..where((row) => row.session.equals(sessionName))).go();
-      await (db.delete(db.sessions)..where((row) => row.name.equals(sessionName))).go();
-    });
+    await db.deleteSession(sessionName);
   }
 
   Future<void> finishSession(String sessionName) async {
-    await (db.update(db.sessions)..where((s) => s.name.equals(sessionName)))
-        .write(SessionsCompanion(finished: Value(true)));
+    await db.finishSession(sessionName);
   }
 }

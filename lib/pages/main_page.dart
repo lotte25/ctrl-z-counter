@@ -1,4 +1,4 @@
-import 'package:ctrlz_counter/models/app_database.dart';
+import 'package:ctrlz_counter/services/database.dart';
 
 import 'package:ctrlz_counter/providers/database.dart';
 import 'package:ctrlz_counter/providers/background.dart';
@@ -55,7 +55,7 @@ class _MainPageState extends State<MainPage> {
         Session(
           createdAt: DateTime.now(), 
           id: 1, 
-          name: "default", 
+          name: "Default", 
           finished: true
         ),
         ...sessions

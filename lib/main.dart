@@ -1,27 +1,33 @@
 import 'dart:io';
 
-import 'package:ctrlz_counter/services/settings.dart';
-import 'package:ctrlz_counter/services/system_tray.dart';
-import 'package:flutter/material.dart';
 
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:launch_at_startup/launch_at_startup.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:window_manager/window_manager.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:flutter/material.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+import 'package:launch_at_startup/launch_at_startup.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'package:window_manager/window_manager.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:windows_single_instance/windows_single_instance.dart';
 
+import 'services/database.dart';
+import 'services/settings.dart';
+import 'services/system_tray.dart';
 import 'services/theme_hive.dart';
+
 import 'providers/keyboard.dart';
 import 'providers/background.dart';
-import 'providers/database.dart';
 import 'providers/discord.dart';
 
 import 'pages/main_app.dart';
 
 void main(List<String> args) async {
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
+  
   await Hive.initFlutter();
   await Hive.openBox("ctrlz_counter");
 
@@ -29,7 +35,7 @@ void main(List<String> args) async {
   await windowManager.ensureInitialized();
   await WindowsSingleInstance.ensureSingleInstance(args, "ctrlz_counter");
 
-  await DatabaseProvider.instance.initialize();
+  await AppDatabase.instance.initialize();
   
   ThemeConfig.storage = HiveStorage();
   
