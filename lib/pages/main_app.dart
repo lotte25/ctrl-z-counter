@@ -1,12 +1,11 @@
-import 'package:ctrlz_counter/services/settings.dart';
-import 'package:ctrlz_counter/utils/window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 
-import 'package:ctrlz_counter/providers/database.dart';
+import 'package:ctrlz_counter/services/settings.dart';
+import 'package:ctrlz_counter/utils/window.dart';
 import 'package:ctrlz_counter/providers/discord.dart';
 import 'package:ctrlz_counter/pages/main_page.dart';
 
@@ -22,7 +21,6 @@ class _MainAppState extends State<MainApp> with WindowListener {
   void initState() {
     super.initState();
     windowManager.addListener(this);
-    DatabaseProvider.instance.initialize();
     Provider.of<RPCProvider>(context, listen: false).initialize();
   }
 

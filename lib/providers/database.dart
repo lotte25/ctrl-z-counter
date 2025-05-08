@@ -5,19 +5,9 @@ class DatabaseProvider {
   static final DatabaseProvider _instance = DatabaseProvider._privateConstructor();
   static DatabaseProvider get instance => _instance;
 
-  AppDatabase? _db;
+  final AppDatabase _db = AppDatabase.instance;
 
-  Future<void> initialize() async {
-      _db ??= AppDatabase.instance;
-  }
-
-  AppDatabase get db {
-    if (_db == null) {
-      throw Exception("Database not initialized.");
-    }
-
-    return _db!;
-  }
+  AppDatabase get db => _db;
 
   Future<void> insertUndo(DateTime timestamp, String session) async {
     await db.createUndo(timestamp, session);
