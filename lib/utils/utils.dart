@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/painting.dart';
+import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -10,13 +10,18 @@ String formatDate(DateTime date, {bool includeHour = true}) {
   return formattedDate;
 }
 
-Future<Color> extractDominantColor(String path) async {
+Future<List<Color>> extractDominantColors(String path) async {
   PaletteGenerator palette = await PaletteGenerator.fromImageProvider(
     FileImage(File(path)),
-    maximumColorCount: 3
+    size: const Size(512, 512),
+    maximumColorCount: 7
   );
+  final List<Color> colors = palette.colors.toList();
 
-  return palette.dominantColor!.color;
+  for (var color in colors) {
+    print("Dominant color: ${color.value.toRadixString(16)}");
+  }
+  return colors;
 }
 
 Future<String> getProgramVersion() async {

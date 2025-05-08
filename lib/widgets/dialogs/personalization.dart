@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:dynamik_theme/dynamik_theme.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:ctrlz_counter/providers/background.dart';
 import 'package:ctrlz_counter/utils/utils.dart';
 
-final _colors = List.generate(
+List<Color> _colors = List.generate(
   7,
-  (index) => Color((Random().nextDouble() * 0xFFFFFF).toInt()).withAlpha(255),
+  (index) => Colors.white,
 );
 
 void showPersonalizationDialog({
@@ -106,10 +105,13 @@ void showPersonalizationDialog({
                     FilledButton.icon(
                       onPressed: () async {
                         context.read<BackgroundProvider>().applyBackground();
-                        Color color = await extractDominantColor(
+
+                        List<Color> colors = await extractDominantColors(
                           context.read<BackgroundProvider>().backgroundImage!
                         );
-                        if (context.mounted) DynamikTheme.of(context).setCustomColorMode(color);
+                        _colors = colors;
+
+                        if (context.mounted) DynamikTheme.of(context).setCustomColorMode(colors.first);
                       }, 
                       label: Text("Apply"),
                       icon: Icon(Icons.check_circle_outline_rounded)
