@@ -113,6 +113,17 @@ class AppDatabase {
     ''');
   }
 
+  // This is for average clicks calculation
+  Future<List<String>> getClickTimestamps({String sessionName = "default"}) async {
+    final results = await database.query(
+      "undoes",
+      where: "session = ?",
+      whereArgs: [sessionName]
+    );
+
+    return results.map((map) => map["timestamp"].toString()).toList();
+  }
+
   // CRUD functions i think they were called?
   Future<void> createUndo(DateTime timestamp, String session) async {
     await database.insert("undoes", Undo(session: session, timestamp: timestamp).toMap());

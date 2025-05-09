@@ -17,11 +17,35 @@ Future<List<Color>> extractDominantColors(String path) async {
     maximumColorCount: 7
   );
   final List<Color> colors = palette.colors.toList();
-
-  for (var color in colors) {
-    print("Dominant color: ${color.value.toRadixString(16)}");
-  }
   return colors;
+}
+
+String formatDuration(int milliseconds) {
+  String twoDigits(int n) => n.toString().padLeft(2, '0');
+
+  final duration = Duration(milliseconds: milliseconds);
+
+  String hours = twoDigits(duration.inHours);
+  String minutes = twoDigits(duration.inMinutes.remainder(60));
+  String seconds = twoDigits(duration.inSeconds.remainder(60));
+  
+  return "$hours:$minutes:$seconds";
+}
+
+String calculateAverageClicksPerDay(List<DateTime> timestamps) {
+  if (timestamps.isEmpty) return "0.0";
+
+  final clicksPerDay = <String, int>{};
+  
+  for (final timestamp in timestamps) {
+    final date = "${timestamp.year}-${timestamp.month}-${timestamp.day}";
+    clicksPerDay.update(date, (value) => value + 1, ifAbsent: () => 1);      
+  }
+
+  final totalClicks = clicksPerDay.values.reduce((a, b) => a + b);
+  final average = totalClicks / clicksPerDay.length;
+
+  return average.toStringAsFixed(2);
 }
 
 Future<String> getProgramVersion() async {

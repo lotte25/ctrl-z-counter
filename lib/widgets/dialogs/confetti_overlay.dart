@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 
-void showConfetti(BuildContext context, ColorScheme colorScheme) {
+void showConfetti(
+  BuildContext context, 
+  ColorScheme colorScheme, 
+  {Future<void> Function()? onEnd}
+) {
   final overlay = Overlay.of(context);
 
   late OverlayEntry overlayEntry;
@@ -57,7 +61,10 @@ void showConfetti(BuildContext context, ColorScheme colorScheme) {
   overlay.insert(overlayEntry);
   confettiController.play();
 
-  Future.delayed(const Duration(seconds: 3), () {
+  Future.delayed(const Duration(seconds: 3), () async {
     fadeController.forward();
+    if (onEnd != null) {
+      await onEnd();
+    }
   });
 }
