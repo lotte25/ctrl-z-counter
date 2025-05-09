@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
 class SettingsService {
-  static final Box _box = Hive.box("ctrlz_counter");
+  static final Box _box = Hive.box("data");
 
   static Future<void> saveSettings({
     bool? minimizeToTray,

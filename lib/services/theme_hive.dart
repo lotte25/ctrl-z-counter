@@ -6,7 +6,7 @@ class HiveStorage extends ThemeStorage {
   final key = "theme";
 
   HiveStorage() {
-    box = Hive.box("ctrlz_counter");
+    box = Hive.box("data");
   }
   
   @override

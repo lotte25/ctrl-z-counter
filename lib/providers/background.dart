@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class BackgroundProvider extends ChangeNotifier {
-  final Box box = Hive.box("ctrlz_counter");
+  final Box box = Hive.box("data");
 
   String? _backgroundImage;
   String? _previewImage;

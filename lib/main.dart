@@ -38,7 +38,7 @@ void main(List<String> args) async {
   databaseFactory = databaseFactoryFfi;
 
   await Hive.initFlutter(await getHivePath());
-  await Hive.openBox("ctrlz_counter");
+  await Hive.openBox("data");
 
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
