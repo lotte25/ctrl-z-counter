@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:path_provider/path_provider.dart';
 
 String formatDate(DateTime date, {bool includeHour = true}) {
   String formattedDate = "${date.day}/${date.month}/${date.year}";
@@ -51,4 +52,10 @@ String calculateAverageClicksPerDay(List<DateTime> timestamps) {
 Future<String> getProgramVersion() async {
   final packageInfo = await PackageInfo.fromPlatform();
   return packageInfo.version;
+}
+
+Future<String> getHivePath() async {
+  final docsDir = await getApplicationDocumentsDirectory();
+
+  return "${docsDir.path}/Ctrl+Z Counter";
 }

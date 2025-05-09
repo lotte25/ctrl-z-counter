@@ -1,3 +1,4 @@
+import 'package:ctrlz_counter/services/logger.dart';
 import 'package:flutter_discord_rpc/flutter_discord_rpc.dart';
 
 class RichPresence {
@@ -11,8 +12,11 @@ class RichPresence {
     try {
       await FlutterDiscordRPC.initialize("1251964533027897455");
       connect();
-    } catch (e) {
-      print("Failed to initialize RPC: $e");
+    } catch (e, s) {
+      logger.e(
+        "Failed to initialize RPC",
+        stackTrace: s
+      );
     }
   }
 
@@ -30,8 +34,11 @@ class RichPresence {
           activityType: ActivityType.watching
         )
       ); 
-    } catch (e) {
-      print(e); 
+    } catch (e, s) {
+      logger.e(
+        "Failed to connect to RPC",
+        stackTrace: s
+      );
     }
   }
 
@@ -52,8 +59,11 @@ class RichPresence {
           activityType: ActivityType.listening,
         ),
       );
-    } catch (e) {
-      print(e); 
+    } catch (e, s) {
+      logger.e(
+        "Failed update activity",
+        stackTrace: s
+      );
     }
   }
 }

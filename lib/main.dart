@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/material.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
 import 'package:provider/provider.dart';
@@ -17,18 +16,28 @@ import 'services/database.dart';
 import 'services/settings.dart';
 import 'services/system_tray.dart';
 import 'services/theme_hive.dart';
+import 'services/logger.dart';
+
+import 'utils/utils.dart';
 
 import 'providers/keyboard.dart';
 import 'providers/background.dart';
 import 'providers/discord.dart';
-
 import 'pages/main_app.dart';
 
 void main(List<String> args) async {
+  FlutterError.onError = (details) {
+    logger.e(
+      "UI exception",
+      error: details.exception,
+      stackTrace: details.stack
+    );
+  };
+
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
-  
-  await Hive.initFlutter();
+
+  await Hive.initFlutter(await getHivePath());
   await Hive.openBox("ctrlz_counter");
 
   WidgetsFlutterBinding.ensureInitialized();
