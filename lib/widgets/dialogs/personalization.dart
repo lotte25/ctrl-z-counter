@@ -2,20 +2,21 @@ import 'dart:io';
 
 import 'package:dynamik_theme/dynamik_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ctrlz_counter/providers/background.dart';
 import 'package:ctrlz_counter/utils/utils.dart';
 
-List<Color> _colors = List.generate(
-  7,
-  (index) => Colors.white,
-);
+final Box box = Hive.box("data");
 
 void showPersonalizationDialog({
   required BuildContext context,
 }) {
+  List<Color> colorPalette = (box.get("color_palette") as List<Color>? ?? [])
+  .toList();
+
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -47,7 +48,7 @@ void showPersonalizationDialog({
                 Wrap(
                   spacing: 10, 
                   runSpacing: 10,
-                  children: _colors.map((c) {
+                  children: colorPalette.map((c) {
                     return GestureDetector(
                       onTap: () {
                         DynamikTheme.of(context).setCustomColorMode(c);
@@ -109,8 +110,8 @@ void showPersonalizationDialog({
                         List<Color> colors = await extractDominantColors(
                           context.read<BackgroundProvider>().backgroundImage!
                         );
-                        _colors = colors;
-
+                        colorPalette = colors;
+                        box.put("color_palette", colors);
                         if (context.mounted) DynamikTheme.of(context).setCustomColorMode(colors.first);
                       }, 
                       label: Text("Apply"),

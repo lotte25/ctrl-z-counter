@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:dynamik_theme/dynamik_theme.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:launch_at_startup/launch_at_startup.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -38,6 +38,7 @@ void main(List<String> args) async {
   databaseFactory = databaseFactoryFfi;
 
   await Hive.initFlutter(await getHivePath());
+  Hive.registerAdapter(ColorAdapter());
   await Hive.openBox("data");
 
   WidgetsFlutterBinding.ensureInitialized();

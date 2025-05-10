@@ -3,6 +3,7 @@ import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ctrlz_counter/services/database.dart';
+import 'package:ctrlz_counter/services/audio_player.dart';
 
 import 'package:ctrlz_counter/providers/database.dart';
 import 'package:ctrlz_counter/providers/background.dart';
@@ -20,8 +21,6 @@ import 'package:ctrlz_counter/widgets/buttons/session_buttons.dart';
 
 import 'package:ctrlz_counter/widgets/dialogs/session.dart';
 import 'package:ctrlz_counter/widgets/dialogs/finish.dart';
-
-import 'package:ctrlz_counter/services/audio_player.dart';
 import 'package:ctrlz_counter/widgets/dialogs/countdown.dart';
 import 'package:ctrlz_counter/widgets/dialogs/confetti_overlay.dart';
 import 'package:ctrlz_counter/widgets/dialogs/session_results.dart';
@@ -61,7 +60,7 @@ class _MainPageState extends State<MainPage> {
         Session(
           createdAt: DateTime.now(), 
           id: 1, 
-          name: "Default", 
+          name: "default", 
           finished: true
         ),
         ...sessions
