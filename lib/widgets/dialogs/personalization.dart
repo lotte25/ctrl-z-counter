@@ -14,8 +14,9 @@ final Box box = Hive.box("data");
 void showPersonalizationDialog({
   required BuildContext context,
 }) {
-  List<Color> colorPalette = (box.get("color_palette") as List<Color>? ?? [])
-  .toList();
+  List<Color> colorPalette = (box.get("color_palette") as List?)
+    !.whereType<Color>()
+    .toList();
 
   showDialog(
     context: context,
