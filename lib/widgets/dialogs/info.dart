@@ -113,7 +113,7 @@ void showInfoDialog({
                   profileImage: "assets/images/shary.png", 
                   imageType: "asset",
                   personName: "Kandell", 
-                  personRole: "Support and inspiration",
+                  personRole: "Icon, support and inspiration",
                   personURL: "https://x.com/SternKennArt",
                 )
               ],

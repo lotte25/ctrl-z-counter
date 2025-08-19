@@ -1,0 +1,9 @@
+app_id: 407B88C2-EE14-4F9B-A939-DE6E048E8DB2
+display_name: Ctrl + Z Counter
+setup_icon_file: windows/runner/resources/app_icon.ico
+publisher: Lotte25
+publisher_url: https://github.com/lotte25/ctrl-z-counter
+create_desktop_icon: true
+locales:
+  - en
+  - es
