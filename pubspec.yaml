@@ -1,7 +1,7 @@
 name: ctrlz_counter
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.17.6
+version: 0.18.0
 
 environment:
   sdk: ^3.7.0

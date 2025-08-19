@@ -157,7 +157,8 @@ class _MainPageState extends State<MainPage> {
                             ClickCountBox(
                               selectedDate: selectedDate, 
                               clicksForSelectedDate: clicksForSelectedDate, 
-                              currentSessionTime: _sessions[currentSessionIndex].createdAt
+                              currentSessionTime: _sessions[currentSessionIndex].createdAt,
+                              finishedAt: _sessions[currentSessionIndex].finishedAt,
                             ),
                             SizedBox(height: 20),
                             FilledButton.icon(

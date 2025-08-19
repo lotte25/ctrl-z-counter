@@ -37,12 +37,14 @@ class Session {
   final String name;
   final DateTime createdAt;
   final bool finished;
+  final DateTime? finishedAt;
 
   Session({
     this.id,
     required this.name,
     required this.createdAt,
     this.finished = false,
+    this.finishedAt
   });
 
   Map<String, dynamic> toMap() {
@@ -50,6 +52,7 @@ class Session {
       'id': id,
       'name': name,
       'created_at': createdAt.toIso8601String(),
+      'finished_at': finishedAt?.toIso8601String(),
       'finished': finished ? 1 : 0,
     };
   }
@@ -60,6 +63,7 @@ class Session {
       name: map['name'],
       createdAt: DateTime.parse(map['created_at']),
       finished: map['finished'] == 1,
+      finishedAt: map['finished_at'] != null ? DateTime.tryParse(map['finished_at']) : null
     );
   }
 }
@@ -85,11 +89,14 @@ class AppDatabase {
 
     _database = await openDatabase(
       dbpath,
-      version: 1,
+      version: 2,
       onCreate: _createDb,
       onOpen: (db) async {
         await db.execute("PRAGMA journal_mode=WAL");
         await db.execute("PRAGMA synchronous=NORMAL");
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        await db.execute('ALTER TABLE sessions ADD COLUMN finished_at TEXT;');
       }
     );
   }
@@ -108,6 +115,7 @@ class AppDatabase {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL CHECK(length(name) >= 3 AND length(name) <= 32),
       created_at TEXT NOT NULL,
+      finished_at TEXT,
       finished INTEGER NOT NULL DEFAULT 0
     )
     ''');
@@ -198,7 +206,10 @@ class AppDatabase {
   Future<void> finishSession(String sessionName) async {
     await database.update(
       "sessions",
-      { "finished": 1 },
+      {
+        "finished": 1,
+        "finished_at": DateTime.now().toIso8601String()
+      },
       where: "name = ?",
       whereArgs: [sessionName]
     );
