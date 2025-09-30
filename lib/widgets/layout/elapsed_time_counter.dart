@@ -65,7 +65,7 @@ class ElapsedCounter extends StatelessWidget {
         : currentSessionTime,
       immediateRebuildOnUpdate: true,
       formatter: (elapsedTime) {
-        String hours = elapsedTime.hours.toString().padRight(2, "0");
+        String hours = elapsedTime.hours.toString().padLeft(2, "0");
         String minutes = elapsedTime.minutes.toString().padLeft(2, "0");
         String seconds = elapsedTime.seconds.toString().padLeft(2, "0");
         
